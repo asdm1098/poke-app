@@ -16,7 +16,7 @@ export const Searchbar = ({ onSearch }: PropsSearchBar) => {
   };
 
   const onClick = async () => {
-    onSearch(search);
+    onSearch(search.toLocaleLowerCase());
   };
 
   return (
