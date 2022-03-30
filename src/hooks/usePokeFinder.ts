@@ -64,6 +64,8 @@ export const usePokeFinder = () => {
         setLoading(true);
         setNotFound(false);
         setSearching(true);
+
+       
         try {
             const result = await searchPokemon(pokemon);
             
@@ -72,9 +74,15 @@ export const usePokeFinder = () => {
                 setLoading(false);
                 return;
             } else {
-                setPokemons([result]);
+                if (pokemon === 'mew') {
+                    let mewtwo = await searchPokemon('mewtwo');
+                    setPokemons([mewtwo, result]);
+                }else{
+                    setPokemons([result]);
+                }
                 setPage(0);
                 setTotal(1);
+
             }
             setLoading(false);
             setSearching(false);
@@ -83,6 +91,7 @@ export const usePokeFinder = () => {
             console.log(error);
             
         }
+        
     };
   
     return {

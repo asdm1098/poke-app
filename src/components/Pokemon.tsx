@@ -17,7 +17,7 @@ export const Pokemon = (props: any) => {
     <div className="pokemon-card">
       <div className="pokemon-img-container">
         <img
-          src={pokemon?.sprites?.front_default}
+          src={pokemon?.urlImg}
           alt={pokemon.name}
           className="pokemon-img"
         />
@@ -29,13 +29,18 @@ export const Pokemon = (props: any) => {
         </div>
         <div className="card-bottom">
           <div className="pokemon-type">
-            {pokemon.types.map((type: any, idx: number) => {
+            {
+              <div className="pokemon-type-text">
+                {pokemon.type}
+              </div>
+            }
+            {/* {pokemon.types.map((type: any, idx: number) => {
               return (
                 <div key={idx} className="pokemon-type-text">
                   {type.type.name}
                 </div>
               );
-            })}
+            })} */}
           </div>
           <button onClick={clickHeart} className="pokemon-heart-btn">
             <div className="pokemon-favorite">{heart}</div>
