@@ -32,20 +32,22 @@ export const Pokemon = (props: any) => {
           <div>#{pokemon.id}</div>
         </div>
         <div className="card-bottom">
-          <div className="pokemon-type">
+          {/* <div className="pokemon-type"> */}
             {/* {
               <div className="pokemon-type-text">
                 {pokemon.type}
               </div>
             } */}
-            {pokemon.types.map((type: any, idx: number) => {
-              return (
-                <div key={idx} className="pokemon-type-text">
-                  {type}
-                </div>
-              );
-            })}
-          </div>
+            <div className="pokemon-type">
+              {pokemon.types.map((type: any, idx: number) => {
+                return (
+                  <div key={idx} className={`pokemon-type-text ${type}`}>
+                    {type}
+                  </div>
+                );
+              })}
+            </div>
+          {/* </div> */}
           <button onClick={clickHeart} className="pokemon-heart-btn">
             <div className="pokemon-favorite">{heart}</div>
           </button>
