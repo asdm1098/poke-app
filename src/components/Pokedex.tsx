@@ -36,8 +36,8 @@ export const Pokedex = ({ pokemons, page, setPage, total, loading }: PropsPokede
         <div>Cargando pokemones...</div>
       ) : (
         <div className="pokedex-grid">
-          {pokemons.map((pokemon: any) => {
-            return <Pokemon pokemon={pokemon} key={pokemon.name} />;
+          {pokemons?.map((pokemon: any) => {
+            return <Pokemon pokemon={pokemon} key={pokemon?.name} />;
           })}
         </div>
       )}

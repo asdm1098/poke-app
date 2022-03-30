@@ -68,7 +68,11 @@ export const usePokeFinder = () => {
        
         try {
             const result = await searchPokemon(pokemon);
-            
+            if (result.statusCode === 500) {
+                setNotFound(true);
+                setLoading(false);
+                return;
+            }
             if (!result) {
                 setNotFound(true);
                 setLoading(false);
@@ -82,7 +86,6 @@ export const usePokeFinder = () => {
                 }
                 setPage(0);
                 setTotal(1);
-
             }
             setLoading(false);
             setSearching(false);
